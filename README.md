@@ -5,6 +5,8 @@ notes <br>
 - sklylanders: spryos adventures characters make the code repeat itself while anything else (all ive tested is adventure and giants) is a one time use, where you have to release to write the code again <br>
 - i use vscode, so i dont know how this will work on other ides
 
+arduino code is in the "arduino skylanders roborio code" repo
+
 how to run: <br>
 - download code <br>
 - run py file <br>
