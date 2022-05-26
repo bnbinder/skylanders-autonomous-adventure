@@ -5,10 +5,24 @@ import msvcrt
 import sys
 import os
 
+imports = ["import edu.wpi.first.wpilibj2.command.SequentialCommandGroup;",
+           "import frc.robot.Constants.AUTOCONSTANTS;"]
+
+Cynder = ["66AADCA4", "deadline(new Command1(param)),"]
+DoubleTrouble = ["F6413CF6", "deadline(new Command2(param)),"]
+LegendarySlamBam = ["A48B4C24", "deadline(new Command3()),"]
+Bouncer = ["6224FE67", "deadline(new Command4(param1, param2)),"]
+Swarm = ["76247EE1", "deadline(new Command5()),"]
+ShroomBoom = ["04E82919", "deadline(new Command6(param)),"]
+
+
+
+
 ports = serial.tools.list_ports.comports()
 serialInst = serial.Serial()
 
 portList = []
+
 
 for onePort in ports:
     portList.append(str(onePort))
@@ -22,12 +36,7 @@ for x in range(0, len(portList)):
         portVar = "COM" + str(val)
         print(portList[x])
 
-Cynder = ["66AADCA4", "obama,"]
-DoubleTrouble = ["F6413CF6", "MOM GET THE CAMERA,"]
-LegendarySlamBam = ["A48B4C24", "your mother,"]
-Bouncer = ["6224FE67", "no scope noob,"]
-Swarm = ["76247EE1", "fite me m9,"]
-ShroomBoom = ["04E82919", "i like trains,"]
+
 
 serialInst.baudrate = 9600
 serialInst.port = newVal #"COM4" #portVar dont know why portVar doesnt work
@@ -36,8 +45,6 @@ firstEmpty = False
 filename = "demofile2.txt"
 newFileName = ""
 
-imports = ["import edu.wpi.first.wpilibj2.command.SequentialCommandGroup;",
-           "import frc.robot.Constants.AUTO.DISTANGLE;"]
 while True:
     newFileQuestion = input("is this a new file? (y/n)")
     if newFileQuestion == "y":
@@ -130,8 +137,11 @@ while True:
         #print(str(lineWritten))
         f.close() #time delay cuz this is slow lol
     if msvcrt.kbhit():
-        f = open("l", "a")
-        f.write(";)}}")
+        f = open(filename, "a")
+        f.write("deadline(new Stop()));}}")
+        #dont know how to remove last character from file with
+        #python, so im just adding a bogus command at the end so
+        #it completes with a semicolon
         f.close
         sys.exit()
    
