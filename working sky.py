@@ -22,12 +22,12 @@ for x in range(0, len(portList)):
         portVar = "COM" + str(val)
         print(portList[x])
 
-Cynder = ["66AADCA4", "obama"]
-DoubleTrouble = ["F6413CF6", "MOM GET THE CAMERA"]
-LegendarySlamBam = ["A48B4C24", "your mother"]
-Bouncer = ["6224FE67", "no scope noob"]
-Swarm = ["76247EE1", "fite me m9"]
-ShroomBoom = ["04E82919", "i like trains"]
+Cynder = ["66AADCA4", "obama,"]
+DoubleTrouble = ["F6413CF6", "MOM GET THE CAMERA,"]
+LegendarySlamBam = ["A48B4C24", "your mother,"]
+Bouncer = ["6224FE67", "no scope noob,"]
+Swarm = ["76247EE1", "fite me m9,"]
+ShroomBoom = ["04E82919", "i like trains,"]
 
 serialInst.baudrate = 9600
 serialInst.port = newVal #"COM4" #portVar dont know why portVar doesnt work
