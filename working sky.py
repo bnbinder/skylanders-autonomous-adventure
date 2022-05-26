@@ -1,3 +1,4 @@
+from hashlib import new
 import serial.tools.list_ports
 
 ports = serial.tools.list_ports.comports()
@@ -17,17 +18,98 @@ for x in range(0, len(portList)):
         portVar = "COM" + str(val)
         print(portList[x])
 
+Cynder = ["66AADCA4", "obama"]
+DoubleTrouble = ["F6413CF6", "MOM GET THE CAMERA"]
+LegendarySlamBam = ["A48B4C24", "your mother"]
+Bouncer = ["6224FE67", "no scope noob"]
+Swarm = ["76247EE1", "fite me m9"]
+ShroomBoom = ["04E82919", "i like trains"]
+
 serialInst.baudrate = 9600
 serialInst.port = newVal #"COM4" #portVar dont know why portVar doesnt work
 serialInst.open()
+firstEmpty = False
+filename = "demofile2.txt"
+newFileName = ""
+
+imports = ["import edu.wpi.first.wpilibj2.command.SequentialCommandGroup;",
+           "import frc.robot.Constants.AUTO.DISTANGLE;"]
+while True:
+    newFileQuestion = input("is this a new file? (y/n)")
+    if newFileQuestion == "y":
+        try:
+            newFileName = input("input new file name (with file type):")
+            filename = newFileName
+            f = open(filename, "x")
+            break;
+        except:
+            print("this name is already taken. try again")
+    elif newFileQuestion == "n":
+        openFileName = input("choose which file to write in: ")
+        filename = openFileName
+        print("ok, will be writing in " + filename)
+        break
+    else:
+        print("this isnt an input stupid")
+
+
+
+with open(filename) as friendsfile:
+    first = friendsfile.read(1)
+    if not first: #empty
+        firstEmpty=True
+
+
+
+f = open(filename, "a")
+
+if firstEmpty:
+    f.write("// Copyright (c) FIRST and other WPILib contributors. \n// Open Source Software; you can modify and/or share it under the terms of \n// the WPILib BSD license file in the root directory of this project.\n")
+    f.write("\npackage frc.robot;\n\n")
+    for s in imports:
+        f.write(s + "\n")
+    f.write("// NOTE:  Consider using this command inline, rather than writing a subclass.  For more \n"
+            "// information, see:\n"
+            "// https://docs.wpilib.org/en/stable/docs/software/commandbased/convenience-features.html\n"
+            "public class " + filename + " extends SequentialCommandGroup {\n"
+            "/** Creates a new Swrv. */\n"
+            "public " + filename + "() {\n"
+            "// Add your commands in the addCommands() call, e.g.\n"
+            "// addCommands(new FooCommand(), new BarCommand());\n"
+            "addCommands(\n")
+    f.close()
 
 while True:
     if serialInst.in_waiting:
         packet = serialInst.readline()
-        newVal = str(packet.decode('utf')).strip('\n')
-        print(packet.decode('utf'), end = "")
-        f = open("demofile2.txt", "a")
-        f.write(newVal)
+        newVal = str(packet.decode('utf')).strip()
+
+        #print(packet.decode('utf'), end = "")
+        f = open(filename, "a")
+        lineSegment = ""
+        if newVal == LegendarySlamBam[0]:
+             lineSegment = LegendarySlamBam[1]
+
+        elif newVal == Cynder[0]:
+             lineSegment = Cynder[1]
+
+        elif newVal == DoubleTrouble[0]:
+             lineSegment =DoubleTrouble[1]
+
+        elif newVal == Bouncer[0]:
+             lineSegment =Bouncer[1]
+
+        elif newVal == Swarm[0]:
+             lineSegment =Swarm[1]
+
+        elif newVal == ShroomBoom[0]:
+             lineSegment =ShroomBoom[1]
         lineWritten = "line written, put on next skylander!"
-        print(str(lineWritten))
+        
+        bool = newVal.strip() == "04E82919"
+        
+        f.write(lineSegment + "\n")
+        #print(packet.split())
+        print(str(bool))
+        #print(str(lineWritten))
         f.close() #time delay cuz this is slow lol
