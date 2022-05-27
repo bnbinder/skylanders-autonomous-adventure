@@ -5,9 +5,11 @@ import msvcrt
 import sys
 import os
 
+#list of imports that will be used in the auto file
 imports = ["import edu.wpi.first.wpilibj2.command.SequentialCommandGroup;",
            "import frc.robot.Constants.AUTOCONSTANTS;"]
 
+#rfid tags and their corresponding auto command groups
 Cynder = ["66AADCA4", "deadline(new Command1(param)),"]
 DoubleTrouble = ["F6413CF6", "deadline(new Command2(param)),"]
 LegendarySlamBam = ["A48B4C24", "deadline(new Command3()),"]
