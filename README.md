@@ -4,6 +4,8 @@ Want to code autonomous, but it isnt as fun as it first was? Well, try the new, 
 
 
 
+<br> (line 77 in `working sky.py` is where you can edit what is actually put in the file, it does not have to be exactly what the video shows)
+
 
 https://user-images.githubusercontent.com/92772910/236031615-8af59402-ecd7-4487-9957-7f4e0fceeea2.mp4
 
